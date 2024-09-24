@@ -42,7 +42,7 @@ public class MetricTimerListener implements Runnable {
         try {
             instance = SpiLoader.of(MetricExporter.class).loadFirstInstance();
         } catch (Throwable t) {
-            // ignore
+            RecordLog.info("[MetricTimerListener] Fail to load MetricExporter", t);
         }
         if (instance == null) {
             MetricTimerListener.exporter = new DefaultExporter();
